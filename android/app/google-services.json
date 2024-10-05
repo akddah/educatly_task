@@ -1,0 +1,415 @@
+{
+  "project_info": {
+    "project_number": "195207224576",
+    "firebase_url": "https://chat-f51bf-default-rtdb.firebaseio.com",
+    "project_id": "chat-f51bf",
+    "storage_bucket": "chat-f51bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:c2c0fa45c227fdc3c0a7e5",
+        "android_client_info": {
+          "package_name": "com.alalmiyalhura.elmo3lmelmosa3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:536ef81985d37469c0a7e5",
+        "android_client_info": {
+          "package_name": "com.app.services"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:377a408f96774dd2c0a7e5",
+        "android_client_info": {
+          "package_name": "com.dfa.flutterchatdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-6sqidpc3uoee9kbpjodv8mj94kc18nss.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dfa.flutterchatdemo",
+            "certificate_hash": "1a91a871e0f9ef7c7067899e987b0408cb263d26"
+          }
+        },
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:700f774178197638c0a7e5",
+        "android_client_info": {
+          "package_name": "com.educatly.task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:930d340da22c8cd5c0a7e5",
+        "android_client_info": {
+          "package_name": "com.example.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:83ff2cde57dac1f8c0a7e5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_new_version"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:b137d55ad3b95be0c0a7e5",
+        "android_client_info": {
+          "package_name": "com.example.untitledfolder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:79d1320f88029dfec0a7e5",
+        "android_client_info": {
+          "package_name": "com.flavor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:62936a8d024d1b37c0a7e5",
+        "android_client_info": {
+          "package_name": "com.flavor.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:25059b76a59e1921c0a7e5",
+        "android_client_info": {
+          "package_name": "com.flavor.prod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195207224576:android:cb9bf014288c287dc0a7e5",
+        "android_client_info": {
+          "package_name": "com.homesurv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYJn1289h-VKcXaT1Qrph3atpH9UCIOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195207224576-9867dgph97bceg221kvice2ffe6bkent.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "195207224576-ldfo53qee4f1gcdeknu936svb0i0j3fe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flavor.prod"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
