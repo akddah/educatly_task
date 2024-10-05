@@ -52,6 +52,7 @@ class SecureStorage {
 
   // Delete User Data from Secure Storage (e.g., on logout)
   Future<void> deleteUserData() async {
+    user = null;
     await _secureStorage.delete(key: _keyUID);
     await _secureStorage.delete(key: _keyName);
     await _secureStorage.delete(key: _keyEmail);
@@ -60,6 +61,7 @@ class SecureStorage {
 
   // Clear all data in Secure Storage
   Future<void> clearAll() async {
+    user = null;
     await _secureStorage.deleteAll();
   }
 
