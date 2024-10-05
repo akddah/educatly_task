@@ -9,21 +9,22 @@ import 'secure_storage.dart';
 class UserPresenceService {
   Timer? timer;
   late final _groupRef = FirebaseDatabase.instance.ref().child('online_users');
+  final secureStorage = SecureStorage();
   init() async {
-    final secureStorage = SecureStorage();
-    final user = await secureStorage.getUserData();
-    if (user.isAuthenticated) {
+    if (secureStorage.user?.isAuthenticated ?? false) {
+      setOnline(secureStorage.user!.uid);
       timer?.cancel();
       timer = Timer.periodic(const Duration(minutes: 1), (timer) async {
-        setOnline(user.uid);
+        setOnline(secureStorage.user!.uid);
       });
     }
   }
 
   Future<bool> setOnline(String id) async {
     try {
-      await _groupRef.child(id).set({"last_seen": DateTime.now().millisecondsSinceEpoch});
-      log('user set online ${DateFormat('hh:mm a').format(DateTime.now())}');
+      final now = DateTime.now().toUtc();
+      await _groupRef.child(id).set({"last_seen": now.millisecondsSinceEpoch});
+      log('user set online ${DateFormat('hh:mm a').format(now)}');
       return true;
     } catch (e) {
       return false;

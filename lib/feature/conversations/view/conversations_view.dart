@@ -20,9 +20,7 @@ class _ConversationsViewState extends State<ConversationsView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ConversationsBloc()
-        ..add(StartCurrentUserEvent())
-        ..add(StartGetConversationsEvent()),
+      create: (context) => ConversationsBloc()..add(StartGetConversationsEvent()),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('All Conversations'),

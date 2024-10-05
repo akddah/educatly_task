@@ -53,12 +53,10 @@ class _UserItemWidgetState extends State<UserItemWidget> {
                     stream: usersOnline.streamController.stream,
                     initialData: {'all': usersOnline.allUsers, 'online': usersOnline.onlineUsers},
                     builder: (context, snapshot) {
-                      final onlineIndex = usersOnline.allUsers.indexWhere((element) => element.userId == widget.user.uid);
-                      if (onlineIndex == -1) return const SizedBox.shrink();
                       return Text(
-                        usersOnline.allUsers[onlineIndex].lastSeen.isAfter(DateTime.now().subtract(const Duration(minutes: 6)))
+                        usersOnline.isUserOnline(widget.user.uid)
                             ? 'Online'
-                            : 'Last seen ${DateFormat('hh:mm a').format(usersOnline.allUsers[onlineIndex].lastSeen)}',
+                            : 'Last seen ${DateFormat('hh:mm a').format(usersOnline.getLastSeen(widget.user.uid))}',
                         style: TextStyle(
                           fontSize: 13,
                           color: Colors.white.withOpacity(0.5),

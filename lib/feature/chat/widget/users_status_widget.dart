@@ -4,9 +4,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:task/core/services/users_online_services.dart';
-import 'package:task/feature/chat/bloc/chat_state.dart';
 
+import '../../../core/services/users_online_services.dart';
 import '../../../models/last_seen_model.dart';
 import '../bloc/chat_bloc.dart';
 
@@ -64,49 +63,44 @@ class _UsersStatusWidgetState extends State<UsersStatusWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ChatBloc, ChatState>(
-      builder: (context, state) {
-        if (!state.getUserState.isDone) return const SizedBox.shrink();
-        if (usersTyping.isNotEmpty) {
+    if (usersTyping.isNotEmpty) {
+      return Text(
+        "${usersTyping.join(',')} ${usersTyping.length > 1 ? 'are' : 'is'} typing...",
+        style: TextStyle(
+          fontSize: 13,
+          color: Colors.white.withOpacity(0.5),
+          fontWeight: FontWeight.w400,
+          overflow: TextOverflow.ellipsis,
+        ),
+      );
+    }
+    return StreamBuilder<Map<String, List<LastSeenModel>>?>(
+      stream: usersOnline.streamController.stream,
+      initialData: {'all': usersOnline.allUsers, 'online': usersOnline.onlineUsers},
+      builder: (context, snapshot) {
+        if (context.read<ChatBloc>().chatId == 'group') {
           return Text(
-            "${usersTyping.join(',')} ${usersTyping.length > 1 ? 'are' : 'is'} typing...",
+            '${snapshot.data?['all']?.length} members, ${snapshot.data?['online']?.length} online',
             style: TextStyle(
               fontSize: 13,
               color: Colors.white.withOpacity(0.5),
               fontWeight: FontWeight.w400,
-              overflow: TextOverflow.ellipsis,
+            ),
+          );
+        } else {
+          final onlineIndex = usersOnline.allUsers.indexWhere((element) => element.userId == context.read<ChatBloc>().externalUser?.uid);
+          if (onlineIndex == -1) return const SizedBox.shrink();
+          return Text(
+            usersOnline.allUsers[onlineIndex].lastSeen.isAfter(DateTime.now().toUtc().subtract(const Duration(minutes: 2)))
+                ? 'Online'
+                : 'Last seen ${DateFormat('hh:mm a').format(usersOnline.allUsers[onlineIndex].lastSeen)}',
+            style: TextStyle(
+              fontSize: 13,
+              color: Colors.white.withOpacity(0.5),
+              fontWeight: FontWeight.w400,
             ),
           );
         }
-        return StreamBuilder<Map<String, List<LastSeenModel>>?>(
-          stream: usersOnline.streamController.stream,
-          initialData: {'all': usersOnline.allUsers, 'online': usersOnline.onlineUsers},
-          builder: (context, snapshot) {
-            if (context.read<ChatBloc>().chatId == 'group') {
-              return Text(
-                '${snapshot.data?['all']?.length} members, ${snapshot.data?['online']?.length} online',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.white.withOpacity(0.5),
-                  fontWeight: FontWeight.w400,
-                ),
-              );
-            } else {
-              final onlineIndex = usersOnline.allUsers.indexWhere((element) => element.userId == context.read<ChatBloc>().externalUser?.uid);
-              if (onlineIndex == -1) return const SizedBox.shrink();
-              return Text(
-                usersOnline.allUsers[onlineIndex].lastSeen.isAfter(DateTime.now().subtract(const Duration(minutes: 2)))
-                    ? 'Online'
-                    : 'Last seen ${DateFormat('hh:mm a').format(usersOnline.allUsers[onlineIndex].lastSeen)}',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.white.withOpacity(0.5),
-                  fontWeight: FontWeight.w400,
-                ),
-              );
-            }
-          },
-        );
       },
     );
   }

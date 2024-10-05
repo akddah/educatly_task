@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart' hide TextDirection;
-import 'package:task/models/user_model.dart';
 
 import '../../../core/utils/extentions.dart';
+import '../../../models/user_model.dart';
 import '../bloc/chat_bloc.dart';
-import '../bloc/chat_event.dart';
 import '../bloc/chat_state.dart';
 import '../widget/chat_appbar.dart';
 import '../widget/chat_input.dart';
@@ -22,7 +21,7 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChatBloc(widget.user)..add(StartGetUserEvent()),
+      create: (context) => ChatBloc(widget.user)..init(),
       child: Scaffold(
         backgroundColor: '#121212'.color,
         appBar: const ChatAppbar(),

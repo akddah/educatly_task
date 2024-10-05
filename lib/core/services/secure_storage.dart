@@ -40,13 +40,14 @@ class SecureStorage {
     String? email = await _secureStorage.read(key: _keyEmail);
     String? imageUrl = await _secureStorage.read(key: _keyImageUrl);
     String? createdAt = await _secureStorage.read(key: _createdAt);
-    return UserModel(
+    user = UserModel(
       name: name ?? '',
       email: email ?? '',
       uid: uid ?? '',
       imageUrl: imageUrl ?? '',
-      createdAt: DateTime.fromMillisecondsSinceEpoch(int.parse(createdAt ?? '0')),
+      createdAt: DateTime.fromMillisecondsSinceEpoch(int.parse(createdAt ?? '0')).toLocal(),
     );
+    return user!;
   }
 
   // Delete User Data from Secure Storage (e.g., on logout)
@@ -61,4 +62,6 @@ class SecureStorage {
   Future<void> clearAll() async {
     await _secureStorage.deleteAll();
   }
+
+  UserModel? user;
 }

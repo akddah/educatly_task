@@ -10,7 +10,7 @@ class LastSeenModel {
   factory LastSeenModel.fromJson(Map<String, dynamic> json) {
     return LastSeenModel(
       userId: json['id'],
-      lastSeen: DateTime.fromMillisecondsSinceEpoch(json['last_seen']),
+      lastSeen: DateTime.fromMillisecondsSinceEpoch(json['last_seen']).toLocal(),
     );
   }
 }

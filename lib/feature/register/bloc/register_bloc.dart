@@ -57,7 +57,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     String filePath = 'user_images/$uid.${imageFile!.path.split('.').last}';
     await _storage.ref(filePath).putFile(imageFile!);
     String imageUrl = await _storage.ref(filePath).getDownloadURL();
-    final createdAt = Timestamp.now().millisecondsSinceEpoch;
+    final createdAt = DateTime.now().toUtc().millisecondsSinceEpoch;
     _store.collection('users').doc(uid).set({
       'uid': uid,
       'name': nameController.text.trim(),

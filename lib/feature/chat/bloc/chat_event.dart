@@ -2,7 +2,6 @@ import '../../../models/message_model.dart';
 
 class ChatEvent {}
 
-class StartGetUserEvent extends ChatEvent {}
 
 class StartSendMessageEvent extends ChatEvent {}
 

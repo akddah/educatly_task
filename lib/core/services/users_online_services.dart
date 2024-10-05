@@ -32,8 +32,8 @@ class UsersOnlineServices {
         } else {
           allUsers[i] = data;
         }
-        final bool isOnline = data.lastSeen.microsecondsSinceEpoch > DateTime.now().subtract(const Duration(minutes: 2)).microsecondsSinceEpoch;
-        log('online $isOnline ${data.userId} lastSeen: ${DateFormat('hh:mm a').format(data.lastSeen)} now : ${DateFormat('hh:mm a').format(DateTime.now().subtract(const Duration(minutes: 2)))}');
+        final bool isOnline = data.lastSeen.microsecondsSinceEpoch > DateTime.now().toUtc().subtract(const Duration(minutes: 2)).microsecondsSinceEpoch;
+        log('online $isOnline ${data.userId} lastSeen: ${DateFormat('hh:mm a').format(data.lastSeen)} now : ${DateFormat('hh:mm a').format(DateTime.now().toUtc().subtract(const Duration(minutes: 2)))}');
         if (isOnline) {
           onlineUsers.add(data);
         }
@@ -51,10 +51,10 @@ class UsersOnlineServices {
         } else {
           allUsers[i] = data;
         }
-        final bool isOnline = data.lastSeen.microsecondsSinceEpoch > DateTime.now().subtract(const Duration(minutes: 2)).microsecondsSinceEpoch;
+        final bool isOnline = data.lastSeen.microsecondsSinceEpoch > DateTime.now().toUtc().subtract(const Duration(minutes: 2)).microsecondsSinceEpoch;
 
-        log('online $isOnline ${data.userId} lastSeen: ${DateFormat('hh:mm a').format(data.lastSeen)} now : ${DateFormat('hh:mm a').format(DateTime.now().subtract(const Duration(minutes: 2)))}');
-        final now = DateTime.now().subtract(const Duration(minutes: 2));
+        log('online $isOnline ${data.userId} lastSeen: ${DateFormat('hh:mm a').format(data.lastSeen)} now : ${DateFormat('hh:mm a').format(DateTime.now().toUtc().subtract(const Duration(minutes: 2)))}');
+        final now = DateTime.now().toUtc().subtract(const Duration(minutes: 2));
         onlineUsers = allUsers.where((element) => element.lastSeen.microsecondsSinceEpoch > now.microsecondsSinceEpoch).toList();
         streamController.add({'online': onlineUsers, 'all': allUsers});
       },
@@ -64,5 +64,15 @@ class UsersOnlineServices {
   void dispose() {
     _onChildChangedSubscription?.cancel();
     if (!streamController.isClosed) streamController.close();
+  }
+
+  isUserOnline(String id) {
+    return onlineUsers.indexWhere((element) => element.userId == id) != -1;
+  }
+
+  DateTime getLastSeen(String id) {
+    final i = allUsers.indexWhere((element) => element.userId == id);
+    if (i == -1) return DateTime.now();
+    return allUsers[i].lastSeen;
   }
 }

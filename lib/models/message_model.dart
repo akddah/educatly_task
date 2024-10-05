@@ -22,7 +22,7 @@ class MessageModel {
       id: '',
       text: json['text'] ?? '',
       type: json['type'] ?? '',
-      createdAt: DateTime.fromMillisecondsSinceEpoch(json['createdAt'] ?? 0),
+      createdAt: DateTime.fromMillisecondsSinceEpoch(json['createdAt'] ?? 0).toLocal(),
       userId: json['user_id'] ?? '',
       userName: json['user_name'] ?? '',
       userImage: json['user_image'] ?? '',

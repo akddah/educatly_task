@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task/core/utils/helper_methods.dart';
 
 import '../../../core/services/secure_storage.dart';
 import '../../../core/services/user_presence_service.dart';
@@ -17,7 +18,6 @@ class ConversationsBloc extends Bloc<ConversationsEvent, ConversationsState> {
     UsersOnlineServices.instance.init();
     _userPresenceService = UserPresenceService();
     _userPresenceService.init();
-    on<StartCurrentUserEvent>(_getUser);
     on<StartLogoutEvent>(_logout);
     on<StartGetConversationsEvent>(_getConversations);
   }
@@ -27,7 +27,7 @@ class ConversationsBloc extends Bloc<ConversationsEvent, ConversationsState> {
   late UserPresenceService _userPresenceService;
 
   final _secureStorage = SecureStorage();
-  late final UserModel user;
+  late final UserModel user = _secureStorage.user!;
   List<UserModel> usersList = [];
 
   @override
@@ -40,21 +40,13 @@ class ConversationsBloc extends Bloc<ConversationsEvent, ConversationsState> {
   Future<void> _logout(StartLogoutEvent event, Emitter<ConversationsState> emit) async {
     try {
       emit(state.copyWith(logoutState: RequestState.loading));
+      showLoadingDialog();
       await _auth.signOut();
       await _secureStorage.deleteUserData();
       emit(state.copyWith(logoutState: RequestState.done, msg: 'Logout successful'));
     } catch (e) {
+      hideLoadingDialog();
       emit(state.copyWith(logoutState: RequestState.error, msg: e.toString()));
-    }
-  }
-
-  FutureOr<void> _getUser(StartCurrentUserEvent event, Emitter<ConversationsState> emit) async {
-    emit(state.copyWith(getCurrentUserState: RequestState.loading));
-    user = await _secureStorage.getUserData();
-    if (user.isAuthenticated) {
-      emit(state.copyWith(getCurrentUserState: RequestState.done));
-    } else {
-      add(StartLogoutEvent());
     }
   }
 

@@ -21,7 +21,7 @@ class UserModel {
       email: map['email'] ?? '',
       uid: map['uid'] ?? '',
       imageUrl: map['imageUrl'] ?? '',
-      createdAt: DateTime.fromMillisecondsSinceEpoch(int.parse('${map['createdAt'] ?? 0}')),
+      createdAt: DateTime.fromMillisecondsSinceEpoch(int.parse('${map['createdAt'] ?? 0}')).toLocal(),
     );
   }
 }

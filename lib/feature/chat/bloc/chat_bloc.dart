@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,16 +14,14 @@ import 'chat_state.dart';
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
   final UserModel? externalUser;
   ChatBloc(this.externalUser) : super(ChatState()) {
-    on<StartGetUserEvent>(_getUser);
     on<StartSendMessageEvent>(_sendMessage);
     on<StartAddMessageEvent>(_addMessage);
   }
 
   late final groupRef = FirebaseDatabase.instance.ref().child('chat/$chatId');
 
-  final _secureStorage = SecureStorage();
   final messageController = TextEditingController();
-  late final UserModel user;
+  final UserModel user = SecureStorage().user!;
   List<MessageModel> messages = [];
 
   Future<void> _sendMessage(StartSendMessageEvent event, Emitter<ChatState> emit) async {
@@ -37,7 +34,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
           "user_id": user.uid,
           "user_name": user.name,
           "user_image": user.imageUrl,
-          'createdAt': Timestamp.now().millisecondsSinceEpoch,
+          'createdAt': DateTime.now().toUtc().millisecondsSinceEpoch,
         };
         groupRef.child('messages').push().set(messageData);
         messageController.clear();
@@ -45,17 +42,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       }
     } catch (e) {
       emit(state.copyWith(sendMessageState: RequestState.error, msg: e.toString()));
-    }
-  }
-
-  FutureOr<void> _getUser(StartGetUserEvent event, Emitter<ChatState> emit) async {
-    emit(state.copyWith(getUserState: RequestState.loading));
-    user = await _secureStorage.getUserData();
-    if (user.isAuthenticated) {
-      init();
-      emit(state.copyWith(getUserState: RequestState.done));
-    } else {
-      // logout here
     }
   }
 
